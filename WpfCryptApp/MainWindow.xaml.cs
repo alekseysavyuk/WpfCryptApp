@@ -21,25 +21,22 @@ namespace WpfCryptApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static CryptViewModel cryptViewModel = new CryptViewModel();
+        private static CryptViewModel? cryptViewModel;
 
         public MainWindow()
         {
-            /*
-        <Canvas>
-            <Button Content="Update" Height="40" Width="150" Canvas.Bottom="20" Canvas.Left="40" IsDefault="True" Click="Update" />
-        </Canvas>
-        <Canvas>
-            <Button Content="Close" Height="40" Width="150" Canvas.Bottom="20" Canvas.Right="40" IsCancel="True" Click="Close" />
-        </Canvas>
-            */
-            //crypt = new ApplicationViewModel();
-
-            //Thread.Sleep(150);
+            cryptViewModel = new CryptViewModel();
+            Thread.Sleep(150);
 
             InitializeComponent();
 
             DataContext = cryptViewModel;
+        }
+
+        private void SearchCrypt(object sender, RoutedEventArgs e)
+        {
+            TextBox text = (TextBox)sender;
+            MessageBox.Show(text.Text);
         }
         
         private void Close(object sender, RoutedEventArgs e)

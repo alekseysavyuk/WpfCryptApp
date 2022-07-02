@@ -15,30 +15,36 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="0.8*" />
-        </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" ItemsSource="{Binding CryptInfoList}" SelectedItem="{Binding SelectedCryptInfo}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="5">
-                        <TextBlock FontSize="10" Text="{Binding Path=Name}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <StackPanel Grid.Column="1" DataContext="{Binding SelectedCryptInfo}">
-            <TextBlock Text="Use Element" />
-            <TextBlock Text="Name" />
-            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Symbol" />
-            <TextBox Text="{Binding Symbol, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Text="Updated_Time" />
-            <TextBox Text="{Binding Updated_DateTime, UpdateSourceTrigger=PropertyChanged}" />
-        </StackPanel>
         <Canvas>
-            <Button Content="Close" Height="40" Width="150" Canvas.Bottom="20" Canvas.Left="40" IsCancel="True" Click="Close" />
+            <TextBox Width="580" Height="30" Canvas.Top="25" Canvas.Left="25" TextChanged="SearchCrypt" />
+            <Button Content="Search" Height="30" Width="150" Canvas.Top="25" Canvas.Right="25" IsCancel="True" />
+        </Canvas>
+        <Grid Margin="25, 75, 25, 60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.8*" />
+            </Grid.ColumnDefinitions>
+            <ListBox Grid.Column="0" ItemsSource="{Binding CryptInfoList}" SelectedItem="{Binding SelectedCryptInfo}" RenderTransformOrigin="0.487,0.66">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="5">
+                            <TextBlock FontSize="14" Text="{Binding Path=Name}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Grid.Column="1" DataContext="{Binding SelectedCryptInfo}">
+                <TextBlock Text="Use Element" Height="25" />
+                <TextBlock Text="Name" />
+                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Height="25" />
+                <TextBlock Text="Symbol" />
+                <TextBox Text="{Binding Symbol, UpdateSourceTrigger=PropertyChanged}" Height="25" />
+                <TextBlock Text="Updated_Time" />
+                <TextBox Text="{Binding Updated_DateTime, UpdateSourceTrigger=PropertyChanged}" Height="25" />
+            </StackPanel>
+        </Grid>
+        <Canvas>
+            <Button Content="Close" Height="30" Width="150" Canvas.Bottom="10" Canvas.Left="28" IsCancel="True" Click="Close" />
         </Canvas>
     </Grid>
 </Window>
