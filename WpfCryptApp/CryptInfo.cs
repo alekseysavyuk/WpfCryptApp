@@ -43,7 +43,7 @@ namespace WpfCryptApp
             set { updated_datetime = value; OnPropertyChanged("Updated_DateTime"); }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             if (PropertyChanged != null)
