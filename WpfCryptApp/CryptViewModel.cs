@@ -10,7 +10,7 @@ namespace WpfCryptApp
     public class CryptViewModel : HttpConnectionHelper, INotifyPropertyChanged
     {
         private CryptInfo? selectedCryptInfo;
-        public ObservableCollection<CryptInfo>? CryptInfoList { get; set; }
+        public static ObservableCollection<CryptInfo>? CryptInfoList { get; set; }
         public CryptInfo? SelectedCryptInfo
         {
             get { return selectedCryptInfo; }

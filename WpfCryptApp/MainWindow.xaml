@@ -19,15 +19,16 @@
             <TextBox Width="580" Height="30" Canvas.Top="25" Canvas.Left="25" TextChanged="SearchCrypt" />
             <Button Content="Search" Height="30" Width="150" Canvas.Top="25" Canvas.Right="25" />
         </Canvas>
-        <Grid Margin="25, 75, 25, 60">
+        <Grid Margin="25, 75, 25, 60" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="0.8*" />
             </Grid.ColumnDefinitions>
-            <ListBox Grid.Column="0" ItemsSource="{Binding CryptInfoList}" SelectedItem="{Binding SelectedCryptInfo}" RenderTransformOrigin="0.487,0.66">
+            <ListBox Grid.Column="0" ItemsSource="{Binding CryptInfoList}" SelectedItem="{Binding SelectedCryptInfo}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="5">
+                            <TextBlock FontSize="14" Text="Top 10" />
                             <TextBlock FontSize="14" Text="{Binding Path=Name}" />
                         </StackPanel>
                     </DataTemplate>
