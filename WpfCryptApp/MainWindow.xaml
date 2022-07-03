@@ -17,7 +17,7 @@
     <Grid>
         <Canvas>
             <TextBox Width="580" Height="30" Canvas.Top="25" Canvas.Left="25" TextChanged="SearchCrypt" />
-            <Button Content="Search" Height="30" Width="150" Canvas.Top="25" Canvas.Right="25" IsCancel="True" />
+            <Button Content="Search" Height="30" Width="150" Canvas.Top="25" Canvas.Right="25" />
         </Canvas>
         <Grid Margin="25, 75, 25, 60">
             <Grid.ColumnDefinitions>
@@ -33,8 +33,8 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <StackPanel Grid.Column="1" DataContext="{Binding SelectedCryptInfo}">
-                <TextBlock Text="Use Element" Height="25" />
+            <StackPanel Grid.Column="1" Margin="5" DataContext="{Binding SelectedCryptInfo}">
+                <TextBlock Text="Use Element" Height="35" />
                 <TextBlock Text="Name" />
                 <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Height="25" />
                 <TextBlock Text="Symbol" />
@@ -44,7 +44,8 @@
             </StackPanel>
         </Grid>
         <Canvas>
-            <Button Content="Close" Height="30" Width="150" Canvas.Bottom="10" Canvas.Left="28" IsCancel="True" Click="Close" />
+            <Button Content="Close" Height="30" Width="150" Canvas.Bottom="10" Canvas.Left="28" IsCancel="True" Click="Button_Close" />
+            <Button Content="More" Height="30" Width="150" Canvas.Bottom="10" Canvas.Right="28" Click="Button_More" />
         </Canvas>
     </Grid>
 </Window>

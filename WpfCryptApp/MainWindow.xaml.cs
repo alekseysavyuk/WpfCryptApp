@@ -26,7 +26,7 @@ namespace WpfCryptApp
         public MainWindow()
         {
             cryptViewModel = new CryptViewModel();
-            Thread.Sleep(150);
+            //Thread.Sleep(100);
 
             InitializeComponent();
 
@@ -39,7 +39,13 @@ namespace WpfCryptApp
             MessageBox.Show(text.Text);
         }
         
-        private void Close(object sender, RoutedEventArgs e)
+        private void Button_More(object sender, RoutedEventArgs e)
+        {
+            AllCryptWindow allCryptWindow = new AllCryptWindow();
+            allCryptWindow.Show();
+        }
+
+        private void Button_Close(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
