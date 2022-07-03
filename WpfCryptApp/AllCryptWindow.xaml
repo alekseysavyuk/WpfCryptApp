@@ -8,12 +8,10 @@
         mc:Ignorable="d"
         Title="AllCryptWindow" Height="450" Width="800">
     <Grid Background="LemonChiffon" >
-        <Label Content="Sorted:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 10, 0, 0" />
-        <Label Content="Search:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="228, 41, 0, 0" />
-        <TextBox x:Name="nameSearch" Height="23" VerticalAlignment="Top" Margin="280, 45, 165, 0" TextWrapping="Wrap" />
-        <Button Click="ActiveFilter" Content="UsedFilter" Width="150" Height="23" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 45, 10, 9" />
-        <Button Name="More" Content="More Inf" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="ActiveSearch" />
-        <ListView Name="AllCryptListView" Margin="10, 100, 10, 10" >
+        <Label Content="Search:" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 25, 0, 0" />
+        <TextBox x:Name="nameSearch" Height="25" VerticalAlignment="Top" Margin="75, 25, 180, 0" TextWrapping="Wrap" />
+        <Button Click="ActiveFilter" Content="Search" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 25, 20, 9" />
+        <ListView Name="AllCryptListView" Margin="10, 75, 10, 50" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
@@ -21,5 +19,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Content="Back" Height="25" Width="130" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsCancel="True" Click="ButtonClose" Margin="20, 0, 0, 10" />
+        <Button Content="Details" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="ActiveSearch" Margin="0, 0, 20, 10" />
     </Grid>
 </Window>

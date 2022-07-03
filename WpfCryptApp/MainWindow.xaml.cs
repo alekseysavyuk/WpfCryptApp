@@ -33,19 +33,22 @@ namespace WpfCryptApp
             DataContext = cryptViewModel;
         }
 
-        private void SearchCrypt(object sender, RoutedEventArgs e)
+        private void ActiveSearch(object sender, RoutedEventArgs e)
         {
-            TextBox text = (TextBox)sender;
-            MessageBox.Show(text.Text);
+            string? crypt = CryptViewModel.SearchCrypt(nameSearch.Text).Name;
+
+            ///proverka
+            DetailOfCrypt detailOfCrypt = new DetailOfCrypt(crypt);
+            detailOfCrypt.Show();
         }
         
-        private void Button_More(object sender, RoutedEventArgs e)
+        private void ButtonMore(object sender, RoutedEventArgs e)
         {
             AllCryptWindow allCryptWindow = new AllCryptWindow();
             allCryptWindow.Show();
         }
 
-        private void Button_Close(object sender, RoutedEventArgs e)
+        private void ButtonClose(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

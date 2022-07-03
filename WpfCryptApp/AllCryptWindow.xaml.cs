@@ -24,14 +24,17 @@ namespace WpfCryptApp
         {
             InitializeComponent();
 
-            LoadCryptInfoList(CryptViewModel.CryptInfoList?.ToList());
+            LoadCryptInfoList(CryptViewModel.CryptInfoList.ToList());
         }
 
         private void ActiveSearch(object sender, RoutedEventArgs e)
         {
-            var name = AllCryptListView.SelectedItem as CryptInfo;
-            
-            DetailOfCrypt detailOfCrypt = new DetailOfCrypt(name);
+            CryptInfo? nameSearch = AllCryptListView.SelectedItem as CryptInfo;
+
+            if (nameSearch == null)
+                nameSearch = new CryptInfo() { Name = "I didn`t seached crypt!!!" };
+
+            DetailOfCrypt detailOfCrypt = new DetailOfCrypt(nameSearch.Name);
             detailOfCrypt.Show();
         }
 
@@ -53,12 +56,15 @@ namespace WpfCryptApp
             AllCryptListView.Items.Clear();
 
             if (cryptList.Count == 0)
-                AllCryptListView.Items.Add(new CryptInfo() { Name = "Not loaded this crypt" });
+                AllCryptListView.Items.Add(new CryptInfo() { Name = "Not loaded that crypt" });
 
             foreach (var crypt in cryptList)
-            {
                 AllCryptListView.Items.Add(crypt);
-            }
+        }
+
+        private void ButtonClose(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

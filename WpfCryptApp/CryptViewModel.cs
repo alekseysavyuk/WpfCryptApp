@@ -19,6 +19,17 @@ namespace WpfCryptApp
 
         public CryptViewModel() => GetColletionCrypt();
 
+        public static CryptInfo SearchCrypt(string str)
+        {
+            foreach (var search in CryptInfoList)
+            {
+                if (str.ToLower() == search?.Name?.ToLower() || str.ToLower() == search?.Symbol?.ToLower())
+                    return search;
+            }
+
+            return new CryptInfo() { Name = "I didn`t searched crypt!!!" };
+        }
+
         public async void GetColletionCrypt()
         {
             try

@@ -19,11 +19,11 @@ namespace WpfCryptApp
     /// </summary>
     public partial class DetailOfCrypt : Window
     {
-        public DetailOfCrypt(CryptInfo cryptInfo)
+        public DetailOfCrypt(string str)
         {
             InitializeComponent();
 
-            Test.Text = cryptInfo.Name;
+            Test.Text = CryptViewModel.SearchCrypt(str).Name;
         }
     }
 }
