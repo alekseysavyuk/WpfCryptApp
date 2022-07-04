@@ -5,16 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfCryptApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="LemonChiffon">
-    <Window.Resources>
-        <Style TargetType="TextBlock">
-            <Setter Property="FontSize" Value="14" />
-        </Style>
-        <Style TargetType="TextBox">
-            <Setter Property="FontSize" Value="14" />
-        </Style>
-    </Window.Resources>
+        Title="MainWindow" Height="450" Width="800" Style="{DynamicResource WindowStyle}">
     <Grid>
+        <ComboBox x:Name="styleBox" SelectionChanged="ThemeChange" Height="30" Width="150" Margin="400, 50, 0, 300">
+            <ComboBoxItem Content="Light" />
+            <ComboBoxItem Content="Dark" />
+        </ComboBox>
         <Label Content="Search:" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 25, 0, 0" />
         <TextBox x:Name="nameSearch" Height="25" VerticalAlignment="Top" Margin="75, 25, 180, 0" TextWrapping="Wrap" />
         <Button Click="ActiveSearch" Content="Search" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 25, 20, 9" />

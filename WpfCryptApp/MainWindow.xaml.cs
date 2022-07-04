@@ -29,7 +29,21 @@ namespace WpfCryptApp
 
             InitializeComponent();
 
+            
+
             DataContext = cryptViewModel;
+        }
+
+        public void ThemeChange(object sender, RoutedEventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            ComboBoxItem comboBoxItem = (ComboBoxItem)comboBox.SelectedItem;
+
+            string? style = comboBoxItem.Content.ToString();
+            var uri = new Uri(style + ".xaml", UriKind.Relative);
+            ResourceDictionary? resourceDictionary = Application.LoadComponent(uri) as ResourceDictionary;
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
         }
 
         private void ButtonUpdate(object sender, RoutedEventArgs e)
