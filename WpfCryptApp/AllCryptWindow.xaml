@@ -20,6 +20,7 @@
             </ListView.View>
         </ListView>
         <Button Content="Back" Height="25" Width="130" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsCancel="True" Click="ButtonClose" Margin="20, 0, 0, 10" />
+        <Button Content="Update" Height="25" Width="130" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="ButtonUpdate" Margin="0, 0, 20, 10" />
         <Button Content="Details" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="ActiveSearch" Margin="0, 0, 20, 10" />
     </Grid>
 </Window>

@@ -26,11 +26,18 @@ namespace WpfCryptApp
         public MainWindow()
         {
             cryptViewModel = new CryptViewModel();
-            //Thread.Sleep(100);
 
             InitializeComponent();
 
             DataContext = cryptViewModel;
+        }
+
+        private void ButtonUpdate(object sender, RoutedEventArgs e)
+        {   
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+
+            this.Close();
         }
 
         private void ActiveSearch(object sender, RoutedEventArgs e)

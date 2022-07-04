@@ -27,6 +27,16 @@ namespace WpfCryptApp
             LoadCryptInfoList(CryptViewModel.CryptInfoList.ToList());
         }
 
+        private void ButtonUpdate(object sender, RoutedEventArgs e)
+        {
+            CryptViewModel cryptViewModel = new CryptViewModel();
+
+            AllCryptWindow allCryptWindow = new AllCryptWindow();
+            allCryptWindow.Show();
+
+            this.Close();
+        }
+
         private void ActiveSearch(object sender, RoutedEventArgs e)
         {
             CryptInfo? nameSearch = AllCryptListView.SelectedItem as CryptInfo;

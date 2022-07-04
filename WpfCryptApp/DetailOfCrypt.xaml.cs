@@ -19,11 +19,30 @@ namespace WpfCryptApp
     /// </summary>
     public partial class DetailOfCrypt : Window
     {
+        public string SearchString { get; set; }
+
         public DetailOfCrypt(string str)
         {
             InitializeComponent();
 
-            Test.Text = CryptViewModel.SearchCrypt(str).Name;
+            SearchString = str;
+
+            Test.Text = CryptViewModel.SearchCrypt(SearchString).Name;
+        }
+
+        private void ButtonUpdate(object sender, RoutedEventArgs e)
+        {
+            CryptViewModel cryptViewModel = new CryptViewModel();
+
+            DetailOfCrypt detailOfCrypt = new DetailOfCrypt(SearchString);
+            detailOfCrypt.Show();
+
+            this.Close();
+        }
+
+        private void ButtonClose(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

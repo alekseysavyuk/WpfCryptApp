@@ -8,5 +8,7 @@
         Title="DetailOfCrypt" Height="450" Width="800">
     <Grid>
         <TextBlock x:Name="Test" Margin="100, 100, 100, 100" Background="AliceBlue" />
+        <Button Content="Back" Height="25" Width="130" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsCancel="True" Click="ButtonClose" Margin="20, 0, 0, 10" />
+        <Button Content="Update" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="ButtonUpdate" Margin="0, 0, 20, 10" />
     </Grid>
 </Window>

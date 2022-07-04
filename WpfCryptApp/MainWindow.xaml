@@ -44,6 +44,7 @@
             </StackPanel>
         </Grid>
         <Button Content="Close" Height="25" Width="130" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsCancel="True" Click="ButtonClose" Margin="20, 0, 0, 10" />
+        <Button Content="Update" Height="25" Width="130" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="ButtonUpdate" Margin="0, 0, 20, 10" />
         <Button Content="More" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="ButtonMore" Margin="0, 0, 20, 10" />
     </Grid>
 </Window>
