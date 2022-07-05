@@ -29,7 +29,7 @@ namespace WpfCryptApp
 
         private void ButtonUpdate(object sender, RoutedEventArgs e)
         {
-            CryptViewModel cryptViewModel = new CryptViewModel();
+            MainWindow.cryptViewModel = new CryptViewModel();
 
             AllCryptWindow allCryptWindow = new AllCryptWindow();
             allCryptWindow.Show();
@@ -54,7 +54,7 @@ namespace WpfCryptApp
 
             foreach (var search in CryptViewModel.CryptInfoList)
             {
-                if (nameSearch.Text.ToLower() == search?.Name?.ToLower() || nameSearch.Text.ToLower() == search?.Symbol?.ToLower())
+                if (nameSearch.Text.ToLower() == search?.Name?.ToLower() || nameSearch.Text.ToLower() == search?.Symbol?.ToLower() || nameSearch.Text.ToLower() == search?.Id?.ToLower())
                     searchList.Add(search);
             }
 

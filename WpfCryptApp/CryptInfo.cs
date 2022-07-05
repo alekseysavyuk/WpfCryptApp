@@ -7,11 +7,25 @@ namespace WpfCryptApp
     public class CryptInfo : INotifyPropertyChanged
     {
 
+        private string? market;
+        private string? id;
         private string? name;
         private string? symbol;
         private decimal? price;
         private decimal? change_24h;
         private DateTime updated_datetime;
+
+        public string? Market
+        {
+            get { return market; }
+            set { market = value; OnPropertyChanged("Market"); }
+        }
+
+        public string? Id
+        {
+            get { return id; }
+            set { id = value; OnPropertyChanged("Id"); }
+        }
 
         public string? Name
         {

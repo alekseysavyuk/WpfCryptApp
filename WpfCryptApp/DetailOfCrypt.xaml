@@ -5,10 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfCryptApp"
         mc:Ignorable="d"
-        Title="DetailOfCrypt" Height="450" Width="800">
+        Title="DetailOfCrypt" Height="450" Width="800" Style="{DynamicResource WindowStyle}">
     <Grid>
-        <TextBlock x:Name="Test" Margin="100, 100, 100, 100" Background="AliceBlue" />
-        <Button Content="Back" Height="25" Width="130" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsCancel="True" Click="ButtonClose" Margin="20, 0, 0, 10" />
-        <Button Content="Update" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="ButtonUpdate" Margin="0, 0, 20, 10" />
+        <TextBlock Text="Name:" Margin="20, 25" FontSize="25" />
+        <TextBox x:Name="textName" Height="25" Width="250" Background="White" Foreground="AliceBlue" Margin="0, 0, 350, 345" />
+        <TextBlock Text="Symbol:" Margin="20, 60, 0, 200" FontSize="25" />
+        <TextBox x:Name="textSymbol" Height="25" Width="250" Background="White" Foreground="AliceBlue" Margin="0, 0, 320, 275" />
+        <TextBlock Text="Price:" Margin="20, 95, 0, 100" FontSize="25" />
+        <TextBox x:Name="textPrice" Height="25" Width="250" Background="White" Foreground="AliceBlue" Margin="0, 0, 370, 205" />
+        <TextBlock Text="Name2:" Margin="450, 25, 0, 0" FontSize="25" />
+        <TextBox x:Name="textName2" Height="25" Width="250" Background="White" Foreground="AliceBlue" Margin="530, 0, 0, 345" />
+        <TextBlock Text="Symbol2:" Margin="460, 60, 0, 200" FontSize="25" />
+        <TextBox x:Name="textSymbol2" Height="25" Width="250" Background="White" Foreground="AliceBlue" Margin="530, 0, 0, 275" />
+        <TextBlock Text="Price2:" Margin="460, 95, 0, 100" FontSize="25" />
+        <TextBox x:Name="textPrice2" Height="25" Width="250" Background="White" Foreground="AliceBlue" Margin="530, 0, 0, 205" />
+        <Grid Margin="25, 75, 25, 60" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.8*" />
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="listBoxMarkets" Grid.Column="0" Margin="-5, -5, 0, -5" SelectedItem="{Binding SelectedCryptInfoInMarkets}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock FontSize="14" Text="{Binding Path=Market}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Grid.Column="1" Margin="10, 50, -5, 20" DataContext="{Binding SelectedCryptInfoInMarkets}">
+                <TextBlock Text="Use Element" Height="35" />
+                <TextBlock Text="Name" />
+                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Height="25" />
+                <TextBlock Text="Symbol" />
+                <TextBox Text="{Binding Symbol, UpdateSourceTrigger=PropertyChanged}" Height="25" />
+                <TextBlock Text="Updated_Time" />
+                <TextBox Text="{Binding Updated_DateTime, UpdateSourceTrigger=PropertyChanged}" Height="25" />
+            </StackPanel>
+        </Grid>
+        <TextBlock x:Name = "Test" />
+        <Button Content = "Back" Height = "25" Width = "130" HorizontalAlignment = "Left" VerticalAlignment = "Bottom" IsCancel = "True" Click = "ButtonClose" Margin = "20, 0, 0, 10" />
+        <Button Content = "Update" Height = "25" Width = "130" HorizontalAlignment = "Right" VerticalAlignment = "Bottom" Click = "ButtonUpdate" Margin = "0, 0, 20, 10" />
     </Grid>
 </Window>

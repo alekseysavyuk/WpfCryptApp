@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="0.8*" />
             </Grid.ColumnDefinitions>
-            <ListBox Grid.Column="0" Margin="-5, -5, 0, -5" ItemsSource="{Binding CryptInfoList}" SelectedItem="{Binding SelectedCryptInfo}">
+            <ListBox x:Name="listBoxTop" Grid.Column="0" Margin="-5, -5, 0, -5" SelectedItem="{Binding SelectedCryptInfo}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>

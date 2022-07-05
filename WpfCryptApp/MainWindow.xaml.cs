@@ -21,7 +21,7 @@ namespace WpfCryptApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static CryptViewModel? cryptViewModel;
+        public static CryptViewModel? cryptViewModel;
 
         public MainWindow()
         {
@@ -29,18 +29,18 @@ namespace WpfCryptApp
 
             InitializeComponent();
 
-            
-
+            listBoxTop.ItemsSource = CryptViewModel.CryptInfoList?.Take(10);
             DataContext = cryptViewModel;
         }
 
-        public void ThemeChange(object sender, RoutedEventArgs e)
+        private void ThemeChange(object sender, RoutedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
             ComboBoxItem comboBoxItem = (ComboBoxItem)comboBox.SelectedItem;
 
             string? style = comboBoxItem.Content.ToString();
             var uri = new Uri(style + ".xaml", UriKind.Relative);
+
             ResourceDictionary? resourceDictionary = Application.LoadComponent(uri) as ResourceDictionary;
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
@@ -56,10 +56,8 @@ namespace WpfCryptApp
 
         private void ActiveSearch(object sender, RoutedEventArgs e)
         {
-            string? crypt = CryptViewModel.SearchCrypt(nameSearch.Text).Name;
-
             ///proverka
-            DetailOfCrypt detailOfCrypt = new DetailOfCrypt(crypt);
+            DetailOfCrypt detailOfCrypt = new DetailOfCrypt(nameSearch.Text);
             detailOfCrypt.Show();
         }
         

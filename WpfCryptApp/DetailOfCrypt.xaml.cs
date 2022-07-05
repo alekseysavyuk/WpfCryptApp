@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,22 +20,63 @@ namespace WpfCryptApp
     /// </summary>
     public partial class DetailOfCrypt : Window
     {
-        public string SearchString { get; set; }
+        private string? SearchString;
 
-        public DetailOfCrypt(string str)
+        private CryptViewModel cryptView;
+
+        public DetailOfCrypt(string searchName)
         {
+            CryptInfo cryptInfo = CryptViewModel.SearchCrypt(searchName);
+
+            MarketsViewModel marketsView = new MarketsViewModel(cryptInfo.Name);
+            //LoadWindow(cryptInfo);
+
             InitializeComponent();
 
-            SearchString = str;
+            //LoadWindow(cryptInfo);
+            //CryptInfo cryptInfo = CryptViewModel.SearchCrypt(searchName);
 
-            Test.Text = CryptViewModel.SearchCrypt(SearchString).Name;
+            //LoadWindow(cryptInfo);
+
+            SearchString = cryptInfo.Id;
+            Test.Text = cryptInfo.Name;
+
+            listBoxMarkets.ItemsSource = MarketsViewModel.CryptInfoInMarketList?.Take(10);
+            DataContext = marketsView;
         }
 
-        private void ButtonUpdate(object sender, RoutedEventArgs e)
+        public DetailOfCrypt(CryptInfo cryptInfo)
         {
-            CryptViewModel cryptViewModel = new CryptViewModel();
+            MarketsViewModel marketsView = new MarketsViewModel(cryptInfo.Name);
 
-            DetailOfCrypt detailOfCrypt = new DetailOfCrypt(SearchString);
+            InitializeComponent();
+
+            SearchString = cryptInfo.Id;
+            Test.Text = cryptInfo.Name;
+
+            //LoadWindow(cryptInfo);
+            listBoxMarkets.ItemsSource = MarketsViewModel.CryptInfoInMarketList?.Take(10);
+            DataContext = marketsView;
+        }
+
+        private async void LoadWindow(CryptInfo crypt)
+        {
+            //MainWindow.cryptViewModel = new CryptViewModel(crypt.Name);
+
+            //Thread.Sleep(800);
+
+            SearchString = crypt.Id;
+            Test.Text = crypt.Name;
+
+            //listBoxTop.ItemsSource = CryptViewModel.CryptInfoInMarketList?.Take(10);
+            //DataContext = MainWindow.cryptViewModel;
+        }
+
+        private async void ButtonUpdate(object sender, RoutedEventArgs e)
+        {
+            var cryptInfo = await MainWindow.cryptViewModel.GetOnlyCrypt(SearchString.ToString());
+
+            DetailOfCrypt detailOfCrypt = new DetailOfCrypt(cryptInfo);
             detailOfCrypt.Show();
 
             this.Close();
