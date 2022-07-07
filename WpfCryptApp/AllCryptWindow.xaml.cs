@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace WpfCryptApp
 {
@@ -27,6 +16,11 @@ namespace WpfCryptApp
             LoadCryptInfoList(CryptViewModel.CryptInfoList.ToList());
         }
 
+        /// <summary>
+        /// Оновлення вікна та даних з Api
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonUpdate(object sender, RoutedEventArgs e)
         {
             MainWindow.cryptViewModel = new CryptViewModel();
@@ -37,6 +31,11 @@ namespace WpfCryptApp
             this.Close();
         }
 
+        /// <summary>
+        /// Активація пошуку криптовалюти та перехід у вікно криптовалюти
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ActiveSearch(object sender, RoutedEventArgs e)
         {
             CryptInfo? nameSearch = AllCryptListView.SelectedItem as CryptInfo;
@@ -48,6 +47,11 @@ namespace WpfCryptApp
             detailOfCrypt.Show();
         }
 
+        /// <summary>
+        /// Виведення списку знайдених криптовалют
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ActiveFilter(object sender, RoutedEventArgs e)
         {
             var searchList = new List<CryptInfo>();
@@ -61,6 +65,10 @@ namespace WpfCryptApp
             LoadCryptInfoList(searchList);
         }
 
+        /// <summary>
+        /// Завантаження даних до форми
+        /// </summary>
+        /// <param name="cryptList"></param>
         private void LoadCryptInfoList(List<CryptInfo> cryptList)
         {
             AllCryptListView.Items.Clear();
@@ -72,6 +80,11 @@ namespace WpfCryptApp
                 AllCryptListView.Items.Add(crypt);
         }
 
+        /// <summary>
+        /// Закриття вікна
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonClose(object sender, RoutedEventArgs e)
         {
             this.Close();

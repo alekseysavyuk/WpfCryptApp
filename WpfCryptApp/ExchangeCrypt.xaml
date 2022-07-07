@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfCryptApp.ExchangeCrypt"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfCryptApp"
+        mc:Ignorable="d"
+        Title="ExchangeCrypt" Height="450" Width="800" Style="{DynamicResource WindowStyle}">
+    <Grid>
+        <TextBlock Text="Your entered crypt" FontSize="18" HorizontalAlignment="Center" Margin="100, 50, 100, 100" Style="{DynamicResource TextBlockStyle}" />
+        <TextBlock x:Name="crypt1" Height="23" Width="200" HorizontalAlignment="Center" Margin="0, 0, 0, 230" />
+        <TextBlock Text="Enter to crypt" FontSize="18" HorizontalAlignment="Center" Margin="200, 150, 200, 200" Style="{DynamicResource TextBlockStyle}" />
+        <TextBox x:Name="crypt2" Height="23" Width="200" HorizontalAlignment="Center" Margin="0, -40, 0, 0" />
+        <TextBlock Text="Enter count crypts" FontSize="18" HorizontalAlignment="Center" Margin="300, 250, 280, 0" Style="{DynamicResource TextBlockStyle}" />
+        <TextBox x:Name="count" Height="23" Width="200" HorizontalAlignment="Center" Margin="0, 150, 0, 0" />
+        <TextBlock Text="Result" FontSize="18" HorizontalAlignment="Center" Margin="300, 330, 280, 0" Style="{DynamicResource TextBlockStyle}" />
+        <TextBlock x:Name="result" Height="23" Width="200" HorizontalAlignment="Center" Margin="300, 320, 300, 0" Style="{DynamicResource TextBlockStyle}" />
+        <Button Content = "Back" Height = "25" Width = "130" HorizontalAlignment = "Left" VerticalAlignment = "Bottom" IsCancel = "True" Click = "ButtonClose" Margin = "20, 0, 0, 10" Style="{DynamicResource ButtonStyle}" />
+        <Button Content = "Exchange" Height = "25" Width = "130" HorizontalAlignment = "Right" VerticalAlignment = "Bottom" Click = "ButtonExchange" Margin = "0, 0, 20, 10" Style="{DynamicResource ButtonStyle}" />
+    </Grid>
+</Window>

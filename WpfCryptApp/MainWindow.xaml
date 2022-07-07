@@ -7,14 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Style="{DynamicResource WindowStyle}">
     <Grid>
-        <ComboBox x:Name="styleBox" SelectionChanged="ThemeChange" Height="30" Width="150" Margin="400, 50, 0, 300">
+        <TextBlock Text="Themes:" Height="23" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10, 25, 0, 0" Style="{DynamicResource TextBlockStyle}" />
+        <ComboBox x:Name="styleBox" SelectionChanged="ThemeChange" Height="23" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Margin="10, 50, 0, 0">
             <ComboBoxItem Content="Light" />
             <ComboBoxItem Content="Dark" />
         </ComboBox>
-        <Label Content="Search:" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 25, 0, 0" />
-        <TextBox x:Name="nameSearch" Height="25" VerticalAlignment="Top" Margin="75, 25, 180, 0" TextWrapping="Wrap" />
-        <Button Click="ActiveSearch" Content="Search" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 25, 20, 9" />
-        <Grid Margin="25, 75, 25, 60" >
+        <TextBlock Text="Search:" Height="23" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="130, 25, 0, 0" Style="{DynamicResource TextBlockStyle}" />
+        <TextBox x:Name="nameSearch" Height="25" VerticalAlignment="Top" Margin="195, 25, 180, 0" TextWrapping="Wrap" />
+        <Button Click="ActiveSearch" Content="Search" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 25, 20, 9" Style="{DynamicResource ButtonStyle}" />
+        <Grid Margin="25, 100, 25, 75" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="0.8*" />
@@ -23,22 +24,24 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock FontSize="11" Text="Top 10" />
-                            <TextBlock FontSize="14" Text="{Binding Path=Name}" />
+                            <TextBlock FontSize="18" Text="{Binding Path=Name}" Style="{DynamicResource TextBlockStyle}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <StackPanel Grid.Column="1" Margin="10, 50, -5, 20" DataContext="{Binding SelectedCryptInfo}">
-                <TextBlock Text="Use Element" Height="35" />
-                <TextBlock Text="Name" />
+            <StackPanel Grid.Column="1" Margin="10, 0, -5, 20" DataContext="{Binding SelectedCryptInfo}">
+                <TextBlock Text="TOP 10 CRYPTOCURRENCY" Height="35" Style="{DynamicResource TextBlockStyle}" />
+                <TextBlock Text="Name" Style="{DynamicResource TextBlockStyle}" />
                 <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Height="25" />
-                <TextBlock Text="Symbol" />
+                <TextBlock Text="Symbol" Style="{DynamicResource TextBlockStyle}" />
                 <TextBox Text="{Binding Symbol, UpdateSourceTrigger=PropertyChanged}" Height="25" />
-                <TextBlock Text="Updated_Time" />
-                <TextBox Text="{Binding Updated_DateTime, UpdateSourceTrigger=PropertyChanged}" Height="25" />
+                <TextBlock Text="Price in USD" Style="{DynamicResource TextBlockStyle}" />
+                <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Height="25" />
+                <TextBlock Text="Change in 24h" Style="{DynamicResource TextBlockStyle}" />
+                <TextBox Text="{Binding Change_24h, UpdateSourceTrigger=PropertyChanged}" Height="25" />
             </StackPanel>
         </Grid>
+        <TextBlock Text="* if data didn`t dowloaded, click button Update" Height="23" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10, 25, 0, 40" Style="{DynamicResource TextBlockStyle}" />
         <Button Content="Close" Height="25" Width="130" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsCancel="True" Click="ButtonClose" Margin="20, 0, 0, 10" />
         <Button Content="Update" Height="25" Width="130" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="ButtonUpdate" Margin="0, 0, 20, 10" />
         <Button Content="More" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="ButtonMore" Margin="0, 0, 20, 10" />

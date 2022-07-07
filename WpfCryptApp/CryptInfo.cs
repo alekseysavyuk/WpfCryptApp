@@ -14,7 +14,7 @@ namespace WpfCryptApp
         private decimal? price;
         private decimal? change_24h;
         private DateTime updated_datetime;
-
+        
         public string? Market
         {
             get { return market; }
@@ -44,7 +44,7 @@ namespace WpfCryptApp
             get { return price; }
             set { price = value; OnPropertyChanged("Price"); }
         }
-        
+
         public decimal? Change_24h
         {
             get { return change_24h; }

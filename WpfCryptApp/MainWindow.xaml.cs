@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfCryptApp
 {
@@ -21,6 +10,9 @@ namespace WpfCryptApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Глобальна змінна для доступу до контексту даних
+        /// </summary>
         public static CryptViewModel? cryptViewModel;
 
         public MainWindow()
@@ -33,6 +25,11 @@ namespace WpfCryptApp
             DataContext = cryptViewModel;
         }
 
+        /// <summary>
+        /// Метод змінення стилю додатку
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ThemeChange(object sender, RoutedEventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
@@ -46,6 +43,11 @@ namespace WpfCryptApp
             Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
         }
 
+        /// <summary>
+        /// Метод оновлення даних отриманих з Api
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonUpdate(object sender, RoutedEventArgs e)
         {   
             MainWindow mainWindow = new MainWindow();
@@ -54,6 +56,11 @@ namespace WpfCryptApp
             this.Close();
         }
 
+        /// <summary>
+        /// Активація пошуку криптовалюти по назві або символьному значенні
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ActiveSearch(object sender, RoutedEventArgs e)
         {
             ///proverka
@@ -61,12 +68,22 @@ namespace WpfCryptApp
             detailOfCrypt.Show();
         }
         
+        /// <summary>
+        /// Перехід на нове вікно звсіма криптовалютами отриманими з Api
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonMore(object sender, RoutedEventArgs e)
         {
             AllCryptWindow allCryptWindow = new AllCryptWindow();
             allCryptWindow.Show();
         }
 
+        /// <summary>
+        /// Закриття вікна
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonClose(object sender, RoutedEventArgs e)
         {
             this.Close();

@@ -8,19 +8,23 @@
         mc:Ignorable="d"
         Title="AllCryptWindow" Height="450" Width="800" Style="{DynamicResource WindowStyle}">
     <Grid>
-        <Label Content="Search:" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 25, 0, 0" />
-        <TextBox x:Name="nameSearch" Height="25" VerticalAlignment="Top" Margin="75, 25, 180, 0" TextWrapping="Wrap" />
-        <Button Click="ActiveFilter" Content="Search" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 25, 20, 9" />
-        <ListView Name="AllCryptListView" Margin="10, 75, 10, 50" >
+        <TextBlock Text="Search:" Height="25" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20, 25, 0, 0" Style="{DynamicResource TextBlockStyle}" />
+        <TextBox x:Name="nameSearch" Height="25" VerticalAlignment="Top" Margin="85, 25, 180, 0" TextWrapping="Wrap" />
+        <Button Click="ActiveFilter" Content="Search" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0, 25, 20, 9" Style="{DynamicResource ButtonStyle}" />
+        <ListView Name="AllCryptListView" Margin="10, 75, 10, 70" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Symbol" Width="150" DisplayMemberBinding="{Binding Symbol}" />
                     <GridViewColumn Header="Price" Width="150" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="Change_24h" Width="150" DisplayMemberBinding="{Binding Change_24h}" />
+                    <GridViewColumn Header="Update_Time" Width="150" DisplayMemberBinding="{Binding Update_DateTime}" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Back" Height="25" Width="130" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsCancel="True" Click="ButtonClose" Margin="20, 0, 0, 10" />
-        <Button Content="Update" Height="25" Width="130" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="ButtonUpdate" Margin="0, 0, 20, 10" />
-        <Button Content="Details" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="ActiveSearch" Margin="0, 0, 20, 10" />
+        <TextBlock Text="* if data didn`t dowloaded, click button Update" Height="23" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10, 25, 0, 40" Style="{DynamicResource TextBlockStyle}" />
+        <Button Content="Back" Height="25" Width="130" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsCancel="True" Click="ButtonClose" Margin="20, 0, 0, 10" Style="{DynamicResource ButtonStyle}" />
+        <Button Content="Update" Height="25" Width="130" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="ButtonUpdate" Margin="0, 0, 20, 10" Style="{DynamicResource ButtonStyle}" />
+        <Button Content="Details" Height="25" Width="130" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="ActiveSearch" Margin="0, 0, 20, 10" Style="{DynamicResource ButtonStyle}" />
     </Grid>
 </Window>
